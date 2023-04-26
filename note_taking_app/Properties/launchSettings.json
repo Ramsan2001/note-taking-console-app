@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "note_taking_app": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}
