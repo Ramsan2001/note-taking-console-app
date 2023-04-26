@@ -1,1 +1,1 @@
-# note_taking_app
+# Note-Taking console application
