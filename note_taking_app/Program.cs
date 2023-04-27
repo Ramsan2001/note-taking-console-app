@@ -53,8 +53,6 @@ while (true)
             break;
         case "2":
             //View all notes
-            string line;
-            int index;
 
             if (File.ReadAllLines(fileName).Count() == 0)
             {
@@ -62,6 +60,7 @@ while (true)
                 Console.WriteLine("No notes yet!");
                 break;
             }
+
             
             GetAllNotes(fileName, out line, out index);
             break;
