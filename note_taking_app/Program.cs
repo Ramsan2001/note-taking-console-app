@@ -1,4 +1,17 @@
 ﻿Console.Title = "Note-Taking App";
+
+static void GetAllNotes(string fileName, out string line, out int index)
+{
+    Console.Clear();
+    line = "";
+    index = 0;
+    using (StreamReader reader = new StreamReader(fileName))
+    {
+        Console.WriteLine("All notes:");
+        while ((line = reader.ReadLine()) != null) { Console.WriteLine(++index + ". " + line); }
+    }
+}
+
 string fileName = "notes.txt";
 
 while (true)
@@ -40,6 +53,7 @@ while (true)
             break;
         case "2":
             //View all notes
+
             if (File.ReadAllLines(fileName).Count() == 0)
             {
                 Console.Clear();
@@ -47,14 +61,8 @@ while (true)
                 break;
             }
 
-            Console.Clear();
-            string line = "";
-            int index = 0;
-            using (StreamReader reader = new StreamReader(fileName))
-            {
-                Console.WriteLine("All notes:");
-                while ((line = reader.ReadLine()) != null) { Console.WriteLine(++index + ". " + line); }
-            }
+            
+            GetAllNotes(fileName, out line, out index);
             break;
         case "3":
             //Delete notes
@@ -68,8 +76,7 @@ while (true)
 
             Console.Clear();
             index = 0;
-            using (StreamReader reader = new StreamReader(fileName))
-                while ((line = reader.ReadLine()) != null) { Console.WriteLine("["+ ++index + "] " + line); }
+            GetAllNotes(fileName, out line, out index);
 
             Console.WriteLine("Choose [#] of note you want to delete ('0' to delete all - '100' to go back):");
             int deletionChoice = int.Parse(Console.ReadLine());
